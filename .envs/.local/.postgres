@@ -1,0 +1,7 @@
+# PostgreSQL
+# ------------------------------------------------------------------------------
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
+POSTGRES_DB=cipefilos
+POSTGRES_USER=ltJDgoJMwYhvgiEuOtJSsxrgHucBcAon
+POSTGRES_PASSWORD=diwLSOq6M9dDVv2tsNCblWP8hBGzjU8Ki3ShEbGbI9bYrx9krA6XThKihjPArRXI
