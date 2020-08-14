@@ -30,11 +30,10 @@ class Actores(models.Model):
     nacimiento = models.DateField()
     nacionalidad = models.CharField(max_length=150)
     imagen = models.URLField(help_text="De imdb mismo",default='https://m.media-amazon.com/images/G/01/imdb/images/nopicture/medium/name-2135195744._CB466677935_.png')
-
+    peliculas = models.ForeignKey(Pelicula, null=True, on_delete=models.SET_NULL)
+    series = models.ForeignKey(Series, null=True, on_delete=models.SET_NULL)
     class Meta:
         ordering = ['nombre']
 
-class PeliculaFavorita(models.Model):
-    pelicula = models.ForeignKey(Pelicula, on_delete=models.CASCADE)
 
     

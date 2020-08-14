@@ -1,5 +1,5 @@
-from .models import Pelicula, Series, Actores, PeliculaFavorita
-from .serializers import PeliculaSerializer, SeriesSerializer, ActoresSerializers, PeliculaFavoritaSerializers
+from .models import Pelicula, Series, Actores
+from .serializers import PeliculaSerializer, SeriesSerializer, ActoresSerializers
 from django.shortcuts import render, get_object_or_404
 from rest_framework import viewsets, views
 from rest_framework.authentication import TokenAuthentication

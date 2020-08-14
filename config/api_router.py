@@ -12,9 +12,9 @@ else:
 router.register("users", UserViewSet)
 
 #endpoints
-router.register("pelicula", PeliculaViewSet)
-router.register("series", SeriesViewSet)
-router.register("actores", ActoresViewSet)
+router.register("pelicula", views.PeliculaViewSet)
+router.register("series", views.SerieViewSet)
+router.register("actores", views.ActorViewSet)
 
 app_name = "api"
 urlpatterns = router.urls
