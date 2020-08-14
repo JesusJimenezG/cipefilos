@@ -1,0 +1,60 @@
+¡Hola Jesus!
+
+En este correo te explicaré en qué consiste este pequeño proyecto que desarrollarás como prueba. Como te comentaba, tus fortalezas deberán estar en el Backend más que en el Front, sin embargo, es bueno que este último también lo manejes lo apliques lo mejor posible en esta prueba. Ya que, la idea es que crezcas junto con nosotros como FullStack Dev.  
+
+Para esta proyecto usaremos VueJS, Vuex, Vue Router, Django, Django RestFramework (DRF) y Docker. NO te intimides por la lista, interesa más que te defiendas en los 3 últimos. Todas estas tecnologías las utilizamos en los proyectos que llevamos actualmente, y todos los requerimientos que especificaré son prácticas que realizamos a diario en los proyectos.
+
+La temática de lo que desarrolles es libre (Restaurante, Taller Mecánico, escuela, etc...), siempre que apliques los elementos que te comentaré más adelante, y utilices de igual forma las librerías.
+
+Para el setup del backend utilizarás Django CookieCutter, que te permitirá crear tu proyecto en un container de docker, y configurar los aspectos básicos de Django, y tendrás todo listo nada más de personalizar y arrancar. Eres libre de utilizar librerías adicionales que faciliten tu trabajo, siempre y cuando me comentes que hacen y cómo las implementas.
+
+Además utilizarás las siguientes librerías, relacionadas a Django Rest Framework:
+drf-nested-routers: https://github.com/alanjds/drf-nested-routers
+Que es una librería que te permite anidar routers de DRF
+django-filter: https://github.com/philipn/django-rest-framework-filters
+Para filtrar de acuerdo a los querys enviandos por los request, lo utilizarás junto con los filtros por defecto que trae DRF
+drf-flex-fields: https://github.com/rsinger86/drf-https://pyjwt.readthedocs.io/en/latest/flex-fields
+Que te permite indicar qué campos que contienen relaciones de tus modelos, vengan con información al llamar a un serializer
+pyjwt: https://pyjwt.readthedocs.io/en/latest/
+Que te permite la generación de Json Web tokens con Python
+Para el Front, puedes utilizar el VueCLI para generar el proyecto, y dejar configurados para su uso VueJS, Vuex, Vue Router. Eres libre de utilizar librerías adicionales, y el framework CSS de tu preferencia.
+
+El proyecto consistirá en que creas un servicio de API que sea consumido a través de Vue, utilizando todo lo mencionado anteriormente. Cumpliendo con las siguientes especificaciones:
+Backend:
+Debes tener configuradas y en uso las dependencias mencionadas anteriormente
+Debes tener mínimo 3 modelos
+Debes tener mínimo 2 relaciones con ForeingKey
+Debes Implementar mínimo 1 relación Manytomany  y mínimo una relación Manytomany through
+Todos tus modelos obviamente, deben tener su respectivo serializer y view
+Debes aplicar validaciones personalizadas en tus serializers
+Debes aplicar una Permisología personalizada (DRF Permissions)
+Debes personalizar el Modelo de Usuarios por defecto de Django
+Debes implementar Viewsets, e incluir por lo menos 1 Action
+Debes generar 1 Token, y guardarlo en uno de tus modelos, no es relevante lo que almacene el Token
+Debes registrar tus modelos en el Admin de Django
+Debes Implementar Testing, no es necesario que sea un su totalidad, pero sí que testees por lo menos 1 endpoint y 1 serializer
+Debes mostrarte como puedes hacer debug con Django a traves de IPDB
+¡Si deseas implementar más funcionalidades eres libre de hacerlo!
+Frontend:
+Debes conectarte con la API, y tus request deben estar autenticados con JWT
+Debes implementar Vue Router, con al menos 1 o 2 rutas, para demostrar una SPA
+Debes implementar por lo menos 1 Action, 1 Mutación, y 1 State con Vuex
+Debes renderizar el contenido que te arroje tu back en pantalla
+Debes crear por lo menos 1 componente que reciba propiedades.
+Eres libre de incorporar más funcionalidades, utilizar otras librerías, o implementar más funcionalidades de Vue, VueRouter o Vuex. También eres libre de utilizar el framework CSS que más te guste.
+
+Además de eso tomaremos en cuenta:
+Uso de Git y Github
+Buenas prácticas de escritura de código
+Documentación
+Formato
+Orden
+Buenas prácticas en la estructuración del proyecto.
+Que sepas entender y explicar lo que has desarrollado
+¡Que te sientas a gusto con lo que has desarrollado!
+
+Tu proyecto, deberás mostrarmelo el viernes, o si no tienes problema máximo el sábado.
+
+Quedo atento a cualquier duda, siéntete libre de escribirme por Whatsapp.
+
+¡Suerte!
