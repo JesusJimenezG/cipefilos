@@ -40,3 +40,4 @@ djangorestframework-filters
 drf-flex-fields
 pyjwt
 django-rest-auth
+django-cors-headers #solve versions
