@@ -12,6 +12,7 @@ else:
 router.register("users", UserViewSet)
 
 #endpoints
+router.register("genero", views.GeneroViewSet)
 router.register("pelicula", views.PeliculaViewSet)
 router.register("series", views.SerieViewSet)
 router.register("actores", views.ActorViewSet)

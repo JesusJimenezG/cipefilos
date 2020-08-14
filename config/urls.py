@@ -17,6 +17,7 @@ urlpatterns = [
     path("users/", include("cipefilos.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
+    #endpoint para registros directamente desde la api y capturar tokens
     path('auth/', 
         include('rest_auth.urls')),
     path('auth/registration/', 

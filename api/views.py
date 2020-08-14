@@ -1,12 +1,17 @@
-from .models import Pelicula, Series, Actores
-from .serializers import PeliculaSerializer, SeriesSerializer, ActoresSerializers
+from .models import Pelicula, Series, Actores, Genero
+from .serializers import PeliculaSerializer, SeriesSerializer, ActorSerializer, GeneroSerializer
 from django.shortcuts import render, get_object_or_404
 from rest_framework import viewsets, views
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
+
 # Create your views here.
+
+class GeneroViewSet(viewsets.ModelViewSet):
+    queryset = Genero.objects.all()
+    serializer_class = GeneroSerializer
 
 class PeliculaViewSet(viewsets.ModelViewSet):
     queryset = Pelicula.objects.all()
@@ -18,5 +23,7 @@ class SerieViewSet(viewsets.ModelViewSet):
 
 class ActorViewSet(viewsets.ModelViewSet):
     queryset = Actores.objects.all()
-    serializer_class = ActoresSerializers
+    serializer_class = ActorSerializer
+
+
 
