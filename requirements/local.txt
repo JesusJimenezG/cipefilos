@@ -38,3 +38,5 @@ pytest-django==3.9.0  # https://github.com/pytest-dev/pytest-django
 drf-nested-routers
 djangorestframework-filters
 drf-flex-fields
+pyjwt
+django-rest-auth

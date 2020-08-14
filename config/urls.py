@@ -17,6 +17,10 @@ urlpatterns = [
     path("users/", include("cipefilos.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
+    path('auth/', 
+        include('rest_auth.urls')),
+    path('auth/registration/', 
+        include('rest_auth.registration.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # API URLS
