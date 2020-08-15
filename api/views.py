@@ -6,7 +6,6 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
-
 # Create your views here.
 
 class GeneroViewSet(viewsets.ModelViewSet):
@@ -25,5 +24,4 @@ class ActorViewSet(viewsets.ModelViewSet):
     queryset = Actores.objects.all()
     serializer_class = ActorSerializer
 
-
-
+##A partir de aqui son pruebas con JWT
