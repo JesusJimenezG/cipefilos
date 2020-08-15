@@ -3,10 +3,22 @@
     <router-link to="/register">Regístrate</router-link> |
     <router-link to="/login">Inicia Sesión</router-link>
   </div>
+  <div class="home">
+    <Peliculas/>
+  </div>
 </template>
 
 <script>
 // @ is an alias to /src
+import Peliculas from '@/components/Peliculas.vue';
+
+export default {
+  name: 'Home',
+  components: {
+    Peliculas,
+  },
+};
+
 </script>
 
 <style lang="scss" scoped>

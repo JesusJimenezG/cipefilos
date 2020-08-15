@@ -4,13 +4,13 @@
   </div>
   <div class="register">
     <h1 class="title">Sign Up</h1>
-    <form action class="form" @submit.prevent="register">
+    <form action class="form" @submit.prevent="register" method="POST">
         <label class="form-label" for="#username">Usuario</label>
         <input
             v-model="username"
             class="form-input"
             type="username"
-            id="user"
+            id="username"
             required placeholder="Username"
         >
       <label class="form-label" for="#email">Email:</label>
@@ -24,7 +24,7 @@
       >
       <label class="form-label" for="#password">Password:</label>
       <input
-        v-model="password"
+        v-model="password1"
         class="form-input"
         type="password"
         id="password"
@@ -32,7 +32,7 @@
       >
       <label class="form-label" for="#password-repeat">Repite la contraeña:</label>
       <input
-        v-model="passwordRepeat"
+        v-model="password2"
         class="form-input"
         type="password"
         id="password-repeat"
@@ -44,17 +44,20 @@
 </template>
 
 <script>
+import auth from '@/store/auth';
+
 export default {
   data: () => ({
+    username: '',
     email: '',
-    password: '',
-    passwordRepeat: '',
+    password1: '',
+    password2: '',
   }),
   methods: {
     register() {
-      console.log(this.email);
-      console.log(this.password);
-      console.log(this.passwordRepeat);
+      auth.register(this.username, this.email, this.password1, this.password2).then((response) => {
+        console.log(response);
+      });
     },
   },
 };

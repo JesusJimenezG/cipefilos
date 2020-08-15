@@ -6,7 +6,7 @@
     <h1 class="title">Login in the page</h1>
     <form action class="form">
       <label class="form-label" for="#username">Usuario:</label>
-      <input class="form-input" type="username" id="user" required placeholder="Usuario">
+      <input class="form-input" type="username" id="username" required placeholder="Usuario">
       <label class="form-label" for="#password">Password:</label>
       <input class="form-input" type="password" id="password" placeholder="Password">
       <input class="form-submit" type="submit" value="Login">
@@ -17,7 +17,7 @@
 <script>
 export default {
   data: () => ({
-    user: '',
+    username: '',
     password: '',
     error: false,
   }),
