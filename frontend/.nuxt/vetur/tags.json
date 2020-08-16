@@ -1,0 +1,26 @@
+{
+  "Actor": {
+    "description": "Auto imported from components/Actor.vue"
+  },
+  "LazyActor": {
+    "description": "Auto imported from components/Actor.vue"
+  },
+  "Logo": {
+    "description": "Auto imported from components/Logo.vue"
+  },
+  "LazyLogo": {
+    "description": "Auto imported from components/Logo.vue"
+  },
+  "Peli": {
+    "description": "Auto imported from components/Peli.vue"
+  },
+  "LazyPeli": {
+    "description": "Auto imported from components/Peli.vue"
+  },
+  "Serie": {
+    "description": "Auto imported from components/Serie.vue"
+  },
+  "LazySerie": {
+    "description": "Auto imported from components/Serie.vue"
+  }
+}
