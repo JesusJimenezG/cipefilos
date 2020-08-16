@@ -36,8 +36,7 @@ pytest-django==3.9.0  # https://github.com/pytest-dev/pytest-django
 
 # librerias
 drf-nested-routers
-djangorestframework-filters
+djangorestframework-filters==1.0.0.dev0
 drf-flex-fields
 pyjwt
 django-rest-auth
-django-cors-headers #solve versions

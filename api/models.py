@@ -12,13 +12,13 @@ class Genero(models.Model):
         return self.genero
 
 class Pelicula(models.Model):
-  titulo = models.CharField(max_length=150)
-  estreno = models.IntegerField(default=2000)
-  imagen = models.URLField(help_text="De imdb mismo")
-  resumen = models.TextField(help_text="Descripción corta")
-  generos = models.ManyToManyField(Genero)
-  class Meta:
-    ordering = ['titulo']
+    titulo = models.CharField(max_length=150)
+    estreno = models.IntegerField(default=2000)
+    imagen = models.URLField(help_text="De imdb mismo")
+    resumen = models.TextField(help_text="Descripción corta")
+    generos = models.ManyToManyField(Genero)
+    class Meta:
+        ordering = ['titulo']
 
 class Series(models.Model):
     titulo = models.CharField(max_length=150)
@@ -40,9 +40,4 @@ class Actores(models.Model):
     series = models.ForeignKey(Series, null=True, on_delete=models.SET_NULL)
     class Meta:
         ordering = ['nombre']
-
-
-
-
-
     

@@ -79,6 +79,7 @@ LOCAL_APPS = [
     "api",
     "rest_auth",
     "rest_auth.registration",
+    "rest_framework_filters",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -277,7 +278,11 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.SessionAuthentication",
         "rest_framework.authentication.TokenAuthentication",
     ),
-    "DEFAULT_PERMISSION_CLASSES": ('rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',),
+    "DEFAULT_PERMISSION_CLASSES": ('rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
+    ),
+    'DEFAULT_FILTER_BACKENDS': (
+        'rest_framework_filters.backends.RestFrameworkFilterBackend',
+    )
 }
 
 # django-cors-headers - https://github.com/adamchainz/django-cors-headers#setup
