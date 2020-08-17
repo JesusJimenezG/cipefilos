@@ -9,18 +9,19 @@ from .views import (
     PeliculaViewSet,
     SerieViewSet,
     ActorViewSet,
-    GeneroViewSet,
-    MarcarPeliculaFavorita,
-    ListPeliculasFavoritas,
+    CastingViewSet,
+    DirectoresViewSet
 )
 
 router = DefaultRouter()
 
 #endpoints
-router.register("genero", GeneroViewSet)
 router.register("pelicula", PeliculaViewSet)
 router.register("series", SerieViewSet)
 router.register("actores", ActorViewSet)
+router.register("directores", DirectoresViewSet)
+router.register("casting", CastingViewSet)
 
 app_name = "api"
+
 urlpatterns = router.urls

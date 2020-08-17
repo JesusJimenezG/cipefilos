@@ -39,10 +39,10 @@
                       </p>
                     </header>
                     <section class="modal-card-body">
-                      <b-field label="Username">
+                      <b-field label="email">
                         <b-input
-                          v-model="loginUsername"
-                          type="username"
+                          v-model="loginEmail"
+                          type="email"
                           placeholder="Usuario"
                           required
                         />
@@ -75,7 +75,23 @@
                       </p>
                     </header>
                     <section class="modal-card-body">
-                      <b-field label="Username">
+                      <b-field label="Nombre">
+                        <b-input
+                          v-model="registerFirstName"
+                          type="firstName"
+                          placeholder="Nombre"
+                          required
+                        />
+                      </b-field>
+                      <b-field label="Apellido">
+                        <b-input
+                          v-model="registerLastName"
+                          type="lastName"
+                          placeholder="Apellido"
+                          required
+                        />
+                      </b-field>
+                      <b-field label="Usuario">
                         <b-input
                           v-model="registerUsername"
                           type="username"
@@ -93,7 +109,7 @@
                       </b-field>
                       <b-field label="Contraseña">
                         <b-input
-                          v-model="registerPassword1"
+                          v-model="registerPassword"
                           type="password"
                           password-reveal
                           placeholder="Contraseña"
@@ -102,7 +118,7 @@
                       </b-field>
                       <b-field label="Repite la contraseña">
                         <b-input
-                          v-model="registerPassword2"
+                          v-model="registerPasswordConf"
                           type="password"
                           password-reveal
                           placeholder="Contraseña"
@@ -172,14 +188,17 @@ export default {
       // login
       isActive: false,
       isLoginActive: false,
-      loginUsername: 'postmantest',
+      loginEmail: 'postman@test.com',
       loginPassword: '159post753',
       // registro
       isRegisterActive: false,
+      isRegisterSuccessful: false,
+      registerFirstName: '',
+      registerLastName: '',
       registerUsername: '',
       registerEmail: '',
-      registerPassword1: '',
-      registerPassword2: ''
+      registerPassword: '',
+      registerPasswordCond: ''
     }
   },
   computed: {
@@ -189,15 +208,15 @@ export default {
   },
   methods: {
     login () {
-      return this.$axios.post('/auth/login/', {
-        username: this.loginUsername,
+      return this.$axios.post('users/login/', {
+        email: this.loginEmail,
         password: this.loginPassword
       }).then((res) => {
-        if (res.data.key) {
-          this.$store.commit('saveToken', res.data.key)
-          this.$store.commit('saveUser', this.loginUsername.split('@')[0])
+        if (res.data.access_token) {
+          this.$store.commit('saveToken', res.data.access_token)
+          this.$store.commit('saveUser', this.loginEmail.split('@')[0])
           // Reiniciamos los campos
-          this.loginUsername = ''
+          this.loginEmail = ''
           this.loginPassword = ''
           // Escondemos la modal
           this.isLoginActive = false
@@ -210,23 +229,26 @@ export default {
       this.$router.replace({ path: '/' })
     },
     register () {
-      return this.$axios.post('/auth/registration/', {
-        username: this.registerUsername,
+      return this.$axios.post('users/signup/', {
         email: this.registerEmail,
-        password1: this.registerPassword1,
-        password2: this.registerPassword2
+        username: this.registerUsername,
+        password: this.registerPassword,
+        password_confirmation: this.registerPasswordConf,
+        first_name: this.registerFirstName,
+        last_name: this.registerLastName
       })
         .then((res) => {
-          if (res.data.key) {
-            this.$store.commit('saveToken', res.data.key)
-            this.$store.commit('saveUser', this.registerUsername)
-            // Reiniciamos los campos
-            this.registerEmail = ''
-            this.registerPassword1 = ''
-            this.registerPassword2 = ''
-            // Escondemos la modal
-            this.isRegisterActive = false
+          if (res.data.first_name) {
+            this.$buefy.dialog.alert('Bienvenido! ' + res.data.first_name + ' ' + res.data.last_name)
           }
+          // this.$store.commit('saveToken', res.data.access_token)
+          this.$store.commit('saveUser', this.registerEmail)
+          // Reiniciamos los campos
+          this.registerEmail = ''
+          this.registerPassword1 = ''
+          this.registerPassword2 = ''
+          // Escondemos la modal
+          this.isRegisterActive = false
         })
         .catch((error) => {
           alert(Object.values(error.response.data))

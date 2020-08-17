@@ -30,3 +30,4 @@ drf-nested-routers
 djangorestframework-filters==1.0.0.dev0
 drf-flex-fields
 pyjwt==1.7.1
+django-cors-headers

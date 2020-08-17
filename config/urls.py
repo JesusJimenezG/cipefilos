@@ -9,6 +9,6 @@ urlpatterns = [
 
     path("", include(('cipefilos.users.urls', 'users'), namespace="users")),
     # API base url
-    path("", include(('cipefilos.api.urls', 'api'), namespace="api")),
-     
+    path("api/", include('cipefilos.api.urls')),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

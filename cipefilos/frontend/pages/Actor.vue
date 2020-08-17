@@ -41,7 +41,7 @@ export default {
     Actor
   },
   asyncData ({ $axios }) {
-    return $axios.get('actores/')
+    return $axios.get('api/actores/')
       .then((res) => {
         return {
           actors: res.data

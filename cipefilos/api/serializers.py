@@ -1,33 +1,46 @@
-from .models import Pelicula, Series, Actores, Genero, PeliculaFavorita
+from .models import Pelicula, Series, Actores, Directores, Casting, PeliculaFavorita
 from rest_framework import serializers
 from rest_flex_fields import FlexFieldsModelSerializer
-
-class GeneroSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Genero
-        fields = ['genero']
-
-class PeliculaSerializer(FlexFieldsModelSerializer):
-    
-    class Meta:
-        model = Pelicula
-        # fields = ['id', 'titulo', 'imagen', 'estreno', 'resumen']
-        fields = '__all__'
-
-class SeriesSerializer(FlexFieldsModelSerializer):
-    
-    class Meta:
-        model = Series
-        fields = '__all__'
 
 class ActorSerializer(FlexFieldsModelSerializer):
     
     class Meta:
         model = Actores
         fields = '__all__'
+        depth = 1
+
+class DirectoresSerializer(FlexFieldsModelSerializer):
+
+    class Meta: 
+        model = Directores
+        fields = '__all__'
+        depth = 1
+
+class CastingSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = Casting
+        fields = '__all__'
+
+class PeliculaSerializer(FlexFieldsModelSerializer):
+    
+    class Meta:
+        model = Pelicula
+        #fields = ['id', 'titulo', 'imagen', 'estreno', 'resumen']
+        fields = '__all__'
+        depth = 1
         expandable_fields = {
-            'peliculas': (PeliculaSerializer, {'many': True, "field": ["titulo"]}),
-            'series': (SeriesSerializer, {'many': True, "field": ["titulo"]}),
+            'reparto': CastingSerializer
+        }
+class SeriesSerializer(FlexFieldsModelSerializer):
+    
+    class Meta:
+        model = Series
+        fields = '__all__'
+        depth = 1
+        
+        expandable_fields = {
+            'reparto': CastingSerializer
         }
 
 class PeliculaFavoritaSerializer(serializers.ModelSerializer):

@@ -28,9 +28,6 @@ class UserViewSet(mixins.RetrieveModelMixin,
                   viewsets.GenericViewSet):
     """User view set."""
 
-    serializer_class = UserModelSerializer
-    lookup_field = 'username'
-
     def get_permissions(self):
         """Assign permissions based on action."""
         if self.action in ['signup', 'login', 'verify']:
@@ -42,6 +39,8 @@ class UserViewSet(mixins.RetrieveModelMixin,
     @action(detail=False, methods=['post'])
     def login(self, request):
         """User sign in."""
+        serializer_class = UserModelSerializer
+        lookup_field = 'username'
         serializer = UserLoginSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         user, token = serializer.save()
