@@ -1,15 +1,12 @@
 from django.conf import settings
 from rest_framework.routers import DefaultRouter, SimpleRouter
 
-from cipefilos.users.api.views import UserViewSet
-from api import views
+from cipefilos.api import views
 
 if settings.DEBUG:
     router = DefaultRouter()
 else:
     router = SimpleRouter()
-
-router.register("users", UserViewSet)
 
 #endpoints
 router.register("genero", views.GeneroViewSet)

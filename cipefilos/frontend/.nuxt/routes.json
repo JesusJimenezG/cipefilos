@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Actor",
+    "path": "/Actor",
+    "component": "C:\\\\Users\\\\jesus\\\\Desktop\\\\centria_project\\\\cipefilos\\\\cipefilos\\\\frontend\\\\pages\\\\Actor.vue",
+    "chunkName": "pages/Actor",
+    "_name": "_411cf1d4"
+  },
+  {
+    "name": "favoritas",
+    "path": "/favoritas",
+    "component": "C:\\\\Users\\\\jesus\\\\Desktop\\\\centria_project\\\\cipefilos\\\\cipefilos\\\\frontend\\\\pages\\\\favoritas.vue",
+    "chunkName": "pages/favoritas",
+    "_name": "_27b6079c"
+  },
+  {
+    "name": "Series",
+    "path": "/Series",
+    "component": "C:\\\\Users\\\\jesus\\\\Desktop\\\\centria_project\\\\cipefilos\\\\cipefilos\\\\frontend\\\\pages\\\\Series.vue",
+    "chunkName": "pages/Series",
+    "_name": "_44c711a6"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "C:\\\\Users\\\\jesus\\\\Desktop\\\\centria_project\\\\cipefilos\\\\cipefilos\\\\frontend\\\\pages\\\\index.vue",
+    "chunkName": "pages/index",
+    "_name": "_21b02f93"
+  }
+]

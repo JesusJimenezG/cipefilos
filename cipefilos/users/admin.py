@@ -1,17 +1,17 @@
+"""User models admin."""
+
+# Django
 from django.contrib import admin
-from django.contrib.auth import admin as auth_admin
-from django.contrib.auth import get_user_model
+from django.contrib.auth.admin import UserAdmin
 
-from cipefilos.users.forms import UserChangeForm, UserCreationForm
-
-User = get_user_model()
+# Models
+from .models import User
 
 
-@admin.register(User)
-class UserAdmin(auth_admin.UserAdmin):
+class CustomUserAdmin(UserAdmin):
+    """User model admin."""
 
-    form = UserChangeForm
-    add_form = UserCreationForm
-    fieldsets = (("User", {"fields": ("name",)}),) + auth_admin.UserAdmin.fieldsets
-    list_display = ["username", "name", "is_superuser"]
-    search_fields = ["name"]
+    list_display = ('email', 'username', 'first_name', 'last_name')
+    list_filter = ('created', 'modified')
+
+admin.site.register(User, CustomUserAdmin)
