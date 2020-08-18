@@ -9,8 +9,6 @@ from .views import (
     PeliculaViewSet,
     SerieViewSet,
     ActorViewSet,
-    CastingViewSet,
-    DirectoresViewSet
 )
 
 router = DefaultRouter()
@@ -19,8 +17,6 @@ router = DefaultRouter()
 router.register("pelicula", PeliculaViewSet)
 router.register("series", SerieViewSet)
 router.register("actores", ActorViewSet)
-router.register("directores", DirectoresViewSet)
-router.register("casting", CastingViewSet)
 
 app_name = "api"
 

@@ -1,8 +1,8 @@
 #models
-from .models import Pelicula, Series, Actores, Directores, Casting, PeliculaFavorita
+from .models import Pelicula, Series, Actores, PeliculaFavorita
 
 #serializers
-from .serializers import PeliculaSerializer, SeriesSerializer, ActorSerializer, DirectoresSerializer, CastingSerializer, PeliculaFavoritaSerializer
+from .serializers import PeliculaSerializer, SeriesSerializer, ActorSerializer, PeliculaFavoritaSerializer
 
 #django
 from rest_framework import viewsets, views, response
@@ -44,21 +44,6 @@ class ActorViewSet(viewsets.ModelViewSet):
 
     #filters
     filter_backends = (SearchFilter, OrderingFilter)
-    search_fields = ['nombre', 'nacionalidad', 'peliculas__casting__titulo', 'series__titulo']
+    search_fields = ['nombre', 'nacionalidad', 'peliculas__titulo', 'series__titulo']
     ordering_fields = ['nombre']
     pagination_class = None
-
-class DirectoresViewSet(viewsets.ModelViewSet):
-
-    queryset = Directores.objects.all()
-    serializer_class = DirectoresSerializer
-
-    filter_backends = (SearchFilter, OrderingFilter)
-    search_fields = ['nombre', 'nacionalidad', 'peliculas__titulo', 'series__casting__titulo']
-    ordering_fields = ['nombre']
-    pagination_class = None
-
-class CastingViewSet(viewsets.ModelViewSet):
-    
-    queryset = Casting.objects.all()
-    serializer_class = CastingSerializer
