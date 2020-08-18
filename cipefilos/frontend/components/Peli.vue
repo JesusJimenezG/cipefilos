@@ -16,7 +16,7 @@
       </div>
       <footer class="card-footer">
         <a class="button is-light card-footer-item">
-          <span>{{ peli.favoritos }}</span>
+          <span>{{ peli.estreno }}</span>
           <b-icon icon="star" />
         </a>
       </footer>
@@ -28,6 +28,7 @@
               <small>({{ peli.estreno }})</small>
             </h2>
             <p>{{ peli.resumen }}</p>
+            <p>{{ peli.equipo }}</p>
           </div>
         </div>
       </b-modal>

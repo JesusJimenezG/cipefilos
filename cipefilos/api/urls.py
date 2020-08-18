@@ -9,6 +9,7 @@ from .views import (
     PeliculaViewSet,
     SerieViewSet,
     ActorViewSet,
+    MarcarPeliculaFavorita
 )
 
 router = DefaultRouter()
@@ -17,6 +18,7 @@ router = DefaultRouter()
 router.register("pelicula", PeliculaViewSet)
 router.register("series", SerieViewSet)
 router.register("actores", ActorViewSet)
+router.register(r'favorita', MarcarPeliculaFavorita, basename="favorita")
 
 app_name = "api"
 

@@ -5,8 +5,7 @@ from .models import Pelicula, Series, Actores, PeliculaFavorita
 from .serializers import PeliculaSerializer, SeriesSerializer, ActorSerializer, PeliculaFavoritaSerializer
 
 #django
-from rest_framework import viewsets, views, response
-from rest_framework.decorators import action
+from rest_framework import mixins, status, viewsets, response
 
 #permissions
 from rest_framework.authentication import TokenAuthentication
@@ -14,6 +13,7 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 
 #filters
 from rest_framework.filters import SearchFilter, OrderingFilter
+
 
 class PeliculaViewSet(viewsets.ModelViewSet):
 
@@ -47,3 +47,29 @@ class ActorViewSet(viewsets.ModelViewSet):
     search_fields = ['nombre', 'nacionalidad', 'peliculas__titulo', 'series__titulo']
     ordering_fields = ['nombre']
     pagination_class = None
+
+class MarcarPeliculaFavorita(mixins.RetrieveModelMixin,
+                            mixins.UpdateModelMixin,
+                            viewsets.GenericViewSet):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+        pelicula = get_object_or_404(
+            Pelicula, id=self.request.data.get('id', 0)
+        )
+
+        favorita, created = PeliculaFavorita.objects.get_or_create(
+            pelicula=pelicula, usuario=request.user
+        )
+        # Por defecto suponemos que se crea bien
+        content = {
+            'id': pelicula.id,
+            'favorita': True
+        }
+        # Si no se ha creado es que ya existe, entonces borramos el favorito
+        if not created:
+            favorita.delete()
+            content['favorita'] = False
+            
+        return Response(content)

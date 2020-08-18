@@ -2,6 +2,9 @@ from .models import Pelicula, Series, Actores, PeliculasReparto, SeriesReparto, 
 from rest_framework import serializers
 from rest_flex_fields import FlexFieldsModelSerializer
 
+#utils
+from django.shortcuts import get_object_or_404
+
 class PeliculaSerializer(FlexFieldsModelSerializer):
     
     class Meta:
@@ -43,4 +46,3 @@ class PeliculaFavoritaSerializer(serializers.ModelSerializer):
     class Meta:
         model = PeliculaFavorita
         fields = ['pelicula']
-        
